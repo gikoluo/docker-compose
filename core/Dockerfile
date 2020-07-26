@@ -19,6 +19,7 @@ RUN set -ex \
     && pip install wheel \
     && pip install --upgrade pip setuptools \
     && pip install -r /opt/jumpserver/requirements/requirements.txt \
+    && pip install psycopg2-binary \
     && yum remove -y wget gcc unzip \
     && yum clean all \
     && rm -rf /var/cache/yum/* \
@@ -30,3 +31,5 @@ COPY core/entrypoint.sh .
 RUN chmod 755 ./entrypoint.sh
 
 CMD ["./entrypoint.sh"]
+
+
